@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+
+  <span class = "gap">Sistema DPTS</span>
+  <button  class = "gap" mat-button  *ngIf="isLogged" (click)="onLogOut()">Cerrar Sesion</button>
+  <button  class = "gap" mat-button *ngIf="!isLogged" routerLink="/login">Iniciar Sesion</button>
+  <button  class = "gap" mat-button routerLink="departamento" *ngIf="isLogged">Departamentos</button>
+
+  <button  class = "gap" mat-button routerLink="registraPropietario" *ngIf="isLogged" >Propietarios</button>
+  <button  class = "gap" mat-button routerLink="registraVisita" *ngIf="isLogged" >Visita</button>
+  <button  class = "gap" mat-button routerLink="servicio" *ngIf="isLogged" >Servicios</button>
+  <button  class = "gap" mat-button routerLink="registraBoleta" *ngIf="isLogged" >Generar Boleta</button>
+  <button  class = "gap" mat-button routerLink="registraIncidente" *ngIf="isLogged" >Incidentes</button>
+  <button  class = "gap" mat-button routerLink="registraMascota" *ngIf="isLogged" >Mascotas</button>
+  <span class = "filler"></span>
+
+
+  <span *ngIf="isLogged">{{nombreUsuario}}</span>
+
+
+
+</mat-toolbar>
