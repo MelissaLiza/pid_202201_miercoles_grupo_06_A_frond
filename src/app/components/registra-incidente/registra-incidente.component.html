@@ -89,7 +89,7 @@
                 <select  id="deporte" name="deporte" class="form-control"  [(ngModel)]="incidenteObj.departamento!.id_departamento">
                     <option value="-1"> [Seleccione] </option>
                     <option *ngFor="let dep of departamento" value="{{dep.id_departamento}}">
-                      {{dep.id_departamento}}
+                      {{dep.numero_departamento}}
                     </option>
                 </select>
               </div>
