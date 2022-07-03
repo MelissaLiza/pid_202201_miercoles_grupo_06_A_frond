@@ -16,40 +16,37 @@ export class RegistraVisitaComponent implements OnInit {
   constructor(private visitaservice: VisitaService , private departamentoService: DepartamentoService) {
     this.departamentoService.listarDepartamento().subscribe(depas => { this.lstDepa = depas })
     this.visitaservice.listaVisitante().subscribe(visi => { this.lstVisi = visi })
-  
-   }
+  }
 
-
-
-   lstVisi: Visitante[] = [];
-   lstDepa: Departamento[] = [];
-   lstPropie: Propietario[] = [];
+  lstVisi: Visitante[] = [];
+  lstDepa: Departamento[] = [];
+  lstPropie: Propietario[] = [];
   visitantes: Visitante[] = [];
   visitas: RegistroVisita[] = [];
-  
+
 
   visitante : Visitante = {
     nombre_visitante :"",
     apellido_visitante :"",
     telefono_visitante: 0,
     dni_visitante:"",
-     
+
   };
 
   registrovisita : RegistroVisita = {
-    
+
     fecha_ingreso :"",
     fecha_salida :"",
     departamento: {
-      id_departamento: 0
-     
+      id_departamento: -1
+
 
     },
     visitante: {
-      id_visitante: 0
-     
+      id_visitante: -1
+
     },
-     
+
   };
 
 
@@ -62,22 +59,18 @@ this.getVisitas();
   }
 
 getVisitante(){
-  
+
   this.visitaservice.listaVisitante().subscribe(
-    
+
     response => this.visitantes = response
-   
-
-
   )
 }
-
 getVisitas(){
-  
+
   this.visitaservice.listaVisita().subscribe(
-    
+
     response => this.visitas = response
-   
+
 
 
   )
@@ -95,13 +88,9 @@ registra() {
       console.log(Response.mensaje);
       alert(Response.mensaje);
       this.visitaservice.listaVisitante().subscribe(
-    
         response => this.visitantes = response
-       
-    
-    
       )
-      
+
     },
     (error) => {
       console.log(console.error);
@@ -122,13 +111,13 @@ registraVisita() {
       console.log(Response.mensaje);
       alert(Response.mensaje);
       this.visitaservice.listaVisita().subscribe(
-    
+
         response => this.visitas = response
-       
-    
-    
+
+
+
       )
-      
+
     },
     (error) => {
       console.log(console.error);
